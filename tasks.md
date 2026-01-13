@@ -11,3 +11,8 @@
 - [x] Implement Dynamic Title and Favicon (Sun/Moon) <!-- id: 8 -->
 - [x] Create README.md per agents.md standards <!-- id: 9 -->
 - [x] Add SEO Meta Tags <!-- id: 10 -->
+- [x] Add Light Flicker Effect <!-- id: 11 -->
+- [x] Add Buzz Sound Effect <!-- id: 12 -->
+- [x] Restrict Pull Distance <!-- id: 13 -->
+- [x] Deploy to GitHub Pages <!-- id: 14 -->
+- [x] Add Image Preloading <!-- id: 15 -->

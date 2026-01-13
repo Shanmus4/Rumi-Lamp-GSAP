@@ -6,9 +6,47 @@ const {
 
 gsap.registerPlugin(MorphSVGPlugin, Draggable);
 
+// ============================================
+// IMAGE PRELOADING
+// ============================================
+// Preload all 4 background images before allowing interaction
+const IMAGES_TO_PRELOAD = [
+  './resources/Desktop View Lamp Off.png',
+  './resources/Desktop View Lamp On.png',
+  './resources/Mobile View Lamp Off.png',
+  './resources/Mobile View Lamp On.png',
+];
+
+let imagesLoaded = 0;
+const totalImages = IMAGES_TO_PRELOAD.length;
+
+function preloadImages() {
+  return new Promise((resolve) => {
+    IMAGES_TO_PRELOAD.forEach((src) => {
+      const img = new Image();
+      img.onload = () => {
+        imagesLoaded++;
+        if (imagesLoaded === totalImages) {
+          resolve();
+        }
+      };
+      img.onerror = () => {
+        imagesLoaded++;
+        console.warn('Failed to preload:', src);
+        if (imagesLoaded === totalImages) {
+          resolve();
+        }
+      };
+      img.src = src;
+    });
+  });
+}
+
+// ============================================
+// AUDIO SETUP
+// ============================================
 const AUDIO = {
   CLICK: new Audio('https://assets.codepen.io/605876/click.mp3'),
-  // Using an alternative high-quality flicker/buzz sound
   BUZZ: new Audio('https://assets.codepen.io/16327/flicker_1.mp3'), 
 };
 
@@ -202,3 +240,13 @@ Draggable.create(PROXY, {
 // Calculate distance of "tug"
 let startX;
 let startY;
+
+// ============================================
+// INITIALIZE AFTER PRELOAD
+// ============================================
+// Start preloading images immediately
+preloadImages().then(() => {
+  console.log('All background images preloaded!');
+  // Remove any loading state if we add one later
+  document.body.classList.add('images-loaded');
+});
