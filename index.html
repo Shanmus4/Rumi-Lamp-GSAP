@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" id="favicon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌑</text></svg>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A calm, interactive lamp cord pull experience. Tug the cord to toggle the light and enjoy the vibe." />
+    <title>Light is Off</title>
+    <script type="module" crossorigin src="/Rumi-Lamp-GSAP/assets/index-CUkEkjMi.js"></script>
+    <link rel="stylesheet" crossorigin href="/Rumi-Lamp-GSAP/assets/index-Mh1o2vJB.css">
+  </head>
+  <body>
+    <!-- 
+      The SVG for the cord. 
+      Removed the bulb part as requested.
+    -->
+    <svg class="toggle-scene" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin" viewBox="0 0 197.451 481.081">
+      <defs>
+        <!-- Improved Texture Filter for Rope -->
+        <filter id="roughPaper">
+          <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" result="noise"></feTurbulence>
+          <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 0" in="noise" result="coloredNoise"></feColorMatrix>
+          <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="composite"></feComposite>
+          <feBlend mode="multiply" in="composite" in2="SourceGraphic"></feBlend>
+        </filter>
+
+        <!-- Gradients for 3D look (Knob) -->
+        <linearGradient id="cordGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:rgb(60,60,60);stop-opacity:1" />
+          <stop offset="40%" style="stop-color:rgb(200,200,200);stop-opacity:1" />
+          <stop offset="100%" style="stop-color:rgb(60,60,60);stop-opacity:1" />
+        </linearGradient>
+
+        <!-- Gradient for the Rope - Simulated Cylinder -->
+        <linearGradient id="ropeGradient" x1="0%" y1="0%" x2="100%" y2="0%" gradientUnits="userSpaceOnUse">
+           <stop offset="0%" style="stop-color:#555;stop-opacity:1" />
+           <stop offset="50%" style="stop-color:#ccc;stop-opacity:1" />
+           <stop offset="100%" style="stop-color:#555;stop-opacity:1" />
+        </linearGradient>
+
+        <marker id="e" orient="auto" overflow="visible" refX="0" refY="0">
+          <path class="toggle-scene__cord-end" fill="url(#cordGradient)" fill-rule="evenodd" stroke-width=".2666" d="M.98 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
+        </marker>
+        <marker id="d" orient="auto" overflow="visible" refX="0" refY="0">
+          <path class="toggle-scene__cord-end" fill="url(#cordGradient)" fill-rule="evenodd" stroke-width=".2666" d="M.98 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
+        </marker>
+        <marker id="c" orient="auto" overflow="visible" refX="0" refY="0">
+          <path class="toggle-scene__cord-end" fill="url(#cordGradient)" fill-rule="evenodd" stroke-width=".2666" d="M.98 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
+        </marker>
+        <marker id="b" orient="auto" overflow="visible" refX="0" refY="0">
+          <path class="toggle-scene__cord-end" fill="url(#cordGradient)" fill-rule="evenodd" stroke-width=".2666" d="M.98 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
+        </marker>
+        <marker id="a" orient="auto" overflow="visible" refX="0" refY="0">
+          <path class="toggle-scene__cord-end" fill="url(#cordGradient)" fill-rule="evenodd" stroke-width=".2666" d="M.98 0a1 1 0 11-2 0 1 1 0 012 0z"></path>
+        </marker>
+      </defs>
+      <g class="toggle-scene__cords">
+        <!-- Main cord path -->
+        <path class="toggle-scene__cord" marker-end="url(#a)" fill="none" stroke-linecap="round" stroke-width="4" d="M123.228-28.56v150.493" transform="translate(-24.503 28.56)"></path>
+        
+        <!-- Alternate paths for morphing -->
+        <path class="toggle-scene__cord" marker-end="url(#a)" fill="none" stroke-linecap="round" stroke-width="4" d="M123.228-28.59s28 8.131 28 19.506-18.667 13.005-28 19.507c-9.333 6.502-28 8.131-28 19.506s28 19.507 28 19.507" transform="translate(-24.503 28.56)"></path>
+        <path class="toggle-scene__cord" marker-end="url(#a)" fill="none" stroke-linecap="round" stroke-width="4" d="M123.228-28.575s-20 16.871-20 28.468c0 11.597 13.333 18.978 20 28.468 6.667 9.489 20 16.87 20 28.467 0 11.597-20 28.468-20 28.468" transform="translate(-24.503 28.56)"></path>
+        <path class="toggle-scene__cord" marker-end="url(#a)" fill="none" stroke-linecap="round" stroke-width="4" d="M123.228-28.569s16 20.623 16 32.782c0 12.16-10.667 21.855-16 32.782-5.333 10.928-16 20.623-16 32.782 0 12.16 16 32.782 16 32.782" transform="translate(-24.503 28.56)"></path>
+        <path class="toggle-scene__cord" marker-end="url(#a)" fill="none" stroke-linecap="round" stroke-width="4" d="M123.228-28.563s-10 24.647-10 37.623c0 12.977 6.667 25.082 10 37.623 3.333 12.541 10 24.647 10 37.623 0 12.977-10 37.623-10 37.623" transform="translate(-24.503 28.56)"></path>
+        
+        <!-- Hit spot for dragging -->
+        <g class="line toggle-scene__dummy-cord">
+          <line marker-end="url(#a)" x1="98.7255" x2="98.7255" y1="0" y2="153"></line>
+        </g>
+        <circle class="toggle-scene__hit-spot" cx="98.7255" cy="153" r="60" fill="transparent"></circle>
+      </g>
+    </svg>
+    <!-- GSAP Scripts (Trial Versions for Demo) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js"></script>
+    <script src="https://assets.codepen.io/16327/MorphSVGPlugin3.min.js"></script>
+    
+    <div class="flicker-overlay"></div>
+  </body>
+</html>
