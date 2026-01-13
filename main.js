@@ -11,10 +11,10 @@ gsap.registerPlugin(MorphSVGPlugin, Draggable);
 // ============================================
 // Preload all 4 background images before allowing interaction
 const IMAGES_TO_PRELOAD = [
-  './resources/Desktop View Lamp Off.png',
-  './resources/Desktop View Lamp On.png',
-  './resources/Mobile View Lamp Off.png',
-  './resources/Mobile View Lamp On.png',
+  './Desktop View Lamp Off.png',
+  './Desktop View Lamp On.png',
+  './Mobile View Lamp Off.png',
+  './Mobile View Lamp On.png',
 ];
 
 let imagesLoaded = 0;

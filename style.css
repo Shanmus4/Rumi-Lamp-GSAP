@@ -10,11 +10,14 @@
 
 html {
   height: 100%;
+  /* Prevent zoom on mobile */
+  touch-action: manipulation;
 }
 
 body {
   height: 100%;
   min-height: 100vh;
+  min-height: -webkit-fill-available; /* iOS Safari fix */
   margin: 0;
   display: flex;
   align-items: flex-start; /* changed from center to allow cord at top */
@@ -27,6 +30,8 @@ body {
   /* Remove transition to allow sharp flicker */
   transition: none; 
   overflow: hidden; /* Prevent scrollbars */
+  /* Prevent zoom on double-tap */
+  touch-action: manipulation;
 }
 
 .flicker-overlay {
@@ -44,11 +49,11 @@ body {
 /* Background Logic */
 /* Desktop (default) */
 body {
-  background-image: url("./resources/Desktop View Lamp Off.png");
+  background-image: url("./Desktop View Lamp Off.png");
 }
 
 body.light-on {
-  background-image: url("./resources/Desktop View Lamp On.png");
+  background-image: url("./Desktop View Lamp On.png");
 }
 
 /* Mobile */
@@ -68,11 +73,11 @@ body.light-on {
 /* Mobile */
 @media (max-width: 768px) {
   body {
-    background-image: url("./resources/Mobile View Lamp Off.png");
+    background-image: url("./Mobile View Lamp Off.png");
   }
 
   body.light-on {
-    background-image: url("./resources/Mobile View Lamp On.png");
+    background-image: url("./Mobile View Lamp On.png");
   }
 
   .toggle-scene {
