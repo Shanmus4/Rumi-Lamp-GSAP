@@ -49,11 +49,11 @@ body {
 /* Background Logic */
 /* Desktop (default) */
 body {
-  background-image: url("./Desktop View Lamp Off.png");
+  background-image: url("/Desktop View Lamp Off.png");
 }
 
 body.light-on {
-  background-image: url("./Desktop View Lamp On.png");
+  background-image: url("/Desktop View Lamp On.png");
 }
 
 /* Mobile */
@@ -73,11 +73,11 @@ body.light-on {
 /* Mobile */
 @media (max-width: 768px) {
   body {
-    background-image: url("./Mobile View Lamp Off.png");
+    background-image: url("/Mobile View Lamp Off.png");
   }
 
   body.light-on {
-    background-image: url("./Mobile View Lamp On.png");
+    background-image: url("/Mobile View Lamp On.png");
   }
 
   .toggle-scene {
